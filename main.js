@@ -227,7 +227,7 @@ document.getElementById('contactBtn').addEventListener('click', () => {
 // Variables for mouse control
 let mouseX = 0;
 let mouseY = 0;
-const rotationSpeed = 0.01; // Slower rotation speed
+const rotationSpeed = 0.01; 
 
 // Handle mouse movement
 document.addEventListener('mousemove', (event) => {
