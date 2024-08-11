@@ -5,7 +5,24 @@ import { gsap } from 'gsap';
 const scene = new THREE.Scene();
 
 // Set background color
-scene.background = new THREE.Color(0x66cccc); // Pastel teal
+// scene.background = new THREE.Color(0x66cccc); // Pastel teal
+
+// Create a texture loader
+const loader = new THREE.TextureLoader();
+
+const backgrounds = {
+  home: '/assets/gradientbg.jpeg', 
+  about: '/assets/whitebg.jpeg',  
+  contact: '/assets/pinkbg.jpeg'  
+};
+
+function changeBackground(imagePath) {
+  loader.load(imagePath, function(texture) {
+    scene.background = texture;
+  });
+}
+
+changeBackground(backgrounds.home);
 
 // Create a camera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -172,6 +189,7 @@ document.getElementById('homeBtn').addEventListener('click', () => {
   houseGroup.visible = true;
   headGroup.visible = false;
   phoneGroup.visible = false;
+  changeBackground(backgrounds.home);
   document.getElementById('homeBtn').classList.add('active');
   document.getElementById('aboutMeBtn').classList.remove('active');
   document.getElementById('contactBtn').classList.remove('active');
@@ -184,6 +202,7 @@ document.getElementById('aboutMeBtn').addEventListener('click', () => {
   houseGroup.visible = false;
   headGroup.visible = true;
   phoneGroup.visible = false;
+  changeBackground(backgrounds.about);
   document.getElementById('homeBtn').classList.remove('active');
   document.getElementById('aboutMeBtn').classList.add('active');
   document.getElementById('contactBtn').classList.remove('active');
@@ -196,6 +215,7 @@ document.getElementById('contactBtn').addEventListener('click', () => {
   houseGroup.visible = false;
   headGroup.visible = false;
   phoneGroup.visible = true;
+  changeBackground(backgrounds.contact);
   document.getElementById('homeBtn').classList.remove('active');
   document.getElementById('aboutMeBtn').classList.remove('active');
   document.getElementById('contactBtn').classList.add('active');
