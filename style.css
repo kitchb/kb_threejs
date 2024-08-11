@@ -1,0 +1,177 @@
+/* General styles for body and canvas */
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+canvas {
+  display: block;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 10px;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  position: absolute;
+  left: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.2), 
+    0 0 5px rgba(0, 255, 255, 0.7), 
+    0 0 10px rgba(0, 255, 255, 0.7),
+    0 0 15px rgba(0, 255, 255, 0.7);
+
+  animation: sway 3s ease-in-out infinite;
+}
+
+.navbar .buttons {
+  display: flex; 
+}
+
+.navbar button {
+  background: transparent;
+  border: none;
+  color:#333;
+  padding: 10px 20px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 23px;
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.5), 
+    0 0 5px rgba(0, 255, 255, 2); 
+  transform: perspective(300px) rotateX(0deg) rotateY(0deg); 
+  transition: transform 0.3s ease, text-shadow 0.3s ease; 
+
+  animation: slowsway 5s ease-in-out infinite;
+}
+
+.navbar button.active {
+  background: none;
+  color: #00ffff; 
+  text-shadow: 
+  1px 1px 2px rgba(0, 0, 0, 0.5), 
+  0 0 5px rgba(0, 255, 255, 0.7), 
+  0 0 10px rgba(0, 255, 255, 0.7),
+  0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+.navbar button:hover {
+   background: #333; 
+  color: #00ffff; 
+  text-shadow: 
+    0 0 10px rgb(0, 255, 255), 
+    0 0 20px rgba(0, 255, 255, 0.7),
+    0 0 30px rgba(0, 255, 255, 0.7);
+  transform: perspective(300px) rotateX(5deg) rotateY(-5deg); 
+}
+
+/* CONTENT AND DESCRIPTION */
+.content {
+  position: absolute;
+  /* width: 900px;  */
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  font-family: "Roboto Mono", monospace;
+}
+
+/* home text */
+.description-text {
+  margin: 10px 0;
+  color: #000;
+  position: fixed;
+}
+
+/* threejs exploration text */
+.vertical, .verticalright {
+  writing-mode: vertical-rl;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+/* threejs exploration */
+.vertical{
+  left: 15%;
+  bottom: 10%
+}
+
+/*interactive 3d text */
+.horizontal{
+  top: 90%;
+  left: 18%;
+}
+
+.verticalright{
+  right: 18%;
+  top: 20%
+}
+
+.horizontalright{
+  bottom: 80%;
+  right: 20%;
+}
+
+#aboutDesc, #contactDesc {
+  position: fixed; /* Change from absolute to fixed */
+  bottom: 10%; /* Adjust top position as needed */
+  right: 3%; /* Adjust right position as needed */
+  width: 245px; /* Ensure a consistent width */
+}
+
+
+#homeDesc {
+  display: block;
+}
+
+#aboutDesc {
+  display: none;
+}
+
+#contactDesc {
+  display: none;
+}
+
+
+/* ANIMATIONS */
+@keyframes sway {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes slowsway {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
