@@ -1,13 +1,13 @@
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 
-// Create a scene
+// SCENE
 const scene = new THREE.Scene();
 
-// Set background color
+// BG COLOR
 // scene.background = new THREE.Color(0x66cccc); // Pastel teal
 
-// Create a texture loader
+// TEXTURE LOADER
 const loader = new THREE.TextureLoader();
 
 const backgrounds = {
@@ -24,16 +24,16 @@ function changeBackground(imagePath) {
 
 changeBackground(backgrounds.home);
 
-// Create a camera
+// CAMERA
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 10;
 
-// Create a renderer
+// RENDERER
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Create lights
+// LIGHTS
 const ambientLight = new THREE.AmbientLight(0x404040, 2);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
 directionalLight.position.set(10, 10, 10).normalize();
@@ -47,7 +47,7 @@ spotLight.distance = 100;
 scene.add(ambientLight, directionalLight, spotLight);
 
 // HOME PAGE - 3d house
-// Create house model
+// house model
 const houseGroup = new THREE.Group();
 scene.add(houseGroup);
 
@@ -98,7 +98,7 @@ window2.position.set(1.5, 0.5, 2.05);
 houseGroup.add(window1, window2);
 
 // ABOUT ME - 3D Robot
-// Create robot head model
+// robot head model
 const headGroup = new THREE.Group();
 scene.add(headGroup);
 headGroup.visible = false;
@@ -141,16 +141,17 @@ antenna2.position.set(1.5, 2.5, 0);
 antenna1.rotation.z = Math.PI / 4;
 antenna2.rotation.z = -Math.PI / 4;
 
-// Add antennae to the head
+// antennae to the head
 head.add(antenna1);
 head.add(antenna2);
 
-// Create phone model
+// CONTACT - 3D PHONE
+// phone model
 const phoneGroup = new THREE.Group();
 scene.add(phoneGroup);
 phoneGroup.visible = false;
 
-// CONTACT - 3D PHONE
+
 // Phone body
 const phoneGeometry = new THREE.BoxGeometry(2, 4, 0.3);
 const phoneMaterial = new THREE.MeshStandardMaterial({
